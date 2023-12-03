@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include <cs50.h>
 
 int  main(void){
-    printf("Hello World\n"); 
+    printf("Hello %s World\n","mintesnot afework"); 
     return 0;
 }
