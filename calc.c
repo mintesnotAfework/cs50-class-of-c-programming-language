@@ -7,6 +7,7 @@ int div(int number1, int number2);
 int reminder(int number1, int number2);
 
 int main(void){
+    int x = get_int("Enter the integer please : ");
     printf("Enter a value i order like this operand opertor operand : ");
     int number1,number2;
     char operator;
