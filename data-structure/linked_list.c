@@ -14,7 +14,7 @@ int getValue(node *list,int index);
 void clear(node *list);
 int isEmpty(node *list);
 int size(node *list);
-void insert(node *list,int index);
+void insert(node *list,int index,int x);
 void delete(node *list,int index);
 
 
@@ -127,11 +127,52 @@ int size(node *list){
     }
     return size;
 }
-void insert(node *list,int index){ // exercise for you
-
+void insert(node *list,int index,int x){ 
+    node *a = malloc(sizeof(node));
+    a->value = x;
+    a->next = NULL;
+    if (list == NULL){
+        list = a;
+    }
+    node *i = list;
+    int j = 0;
+    while(i->next != NULL){
+        if(j == index){
+            node *temp = i->next;
+            i->next = a;
+            a ->next = temp;
+            return;
+        }
+        i = i ->next;
+        j++;
+    }
 }
-void delete(node *list,int index){  //exercise for you
-
+void delete(node *list,int index){ 
+    if (list == NULL){
+        return;
+    }
+    else if(list -> next == NULL){
+        if(index == 0){
+            node * t =list;
+            list = NULL;
+            free(t);
+        }
+        return;
+    }
+    node *k = NULL;
+    node *i = list;
+    int j = 0;
+    while(i->next != NULL){
+        if(j == index){
+            k->next = i->next;
+            i->next =NULL;
+            free(i);
+            return;
+        }
+        k =i;
+        i = i ->next;
+        j++;
+    }
 }
 
 
